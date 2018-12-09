@@ -68,7 +68,6 @@ p_list * create_node(int x, int y){
 
 p_list * add(p_list *head, p_list *new){
 	p_list *t = head;
-	p_list *ins = head;
 	if (!(head)) {
 		head = new;
 		return head;
@@ -121,7 +120,16 @@ void print(p_list *list){
 
 void clear(p_list *list){
 	p_list *temp = list->next, *x, *head = list;
-	do {
+	if (head->next=head) {
+		free(head);
+		exit(0);
+	}
+	else if (temp->next=head) {
+		free(temp);
+		free(head);
+		exit(0);
+	}
+	else do {
 		x = temp;
 		temp = temp->next;
 		free(x);
