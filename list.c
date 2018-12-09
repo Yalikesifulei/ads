@@ -120,11 +120,11 @@ void print(p_list *list){
 
 void clear(p_list *list){
 	p_list *temp = list->next, *x, *head = list;
-	if (head->next=head) {
+	if (head->next==head) {
 		free(head);
 		exit(0);
 	}
-	else if (temp->next=head) {
+	else if (temp->next==head) {
 		free(temp);
 		free(head);
 		exit(0);
